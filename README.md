@@ -1,8 +1,8 @@
 [TOC]
 ### 1. 接入方式
 
-将AntiCheating-release.aar、common-release.aar以及移动安全联盟的miit_mdid_1.0.10.aar拷贝至app module的libs下，在app的build.gradle添加依赖。(注： 若已集成广告SDK，则不需要导入common库以及miit_mdid_1.0.10库)
-
+将AntiCheating-release.aar、common-release.aar以及移动安全联盟的miit_mdid_1.0.10.aar拷贝至app module的libs下，在app的build.gradle添加依赖。
+(注： 若已集成广告SDK，则不需要导入common库以及miit_mdid_1.0.10库)
 ```groovy
 android {
     repositories {
@@ -72,6 +72,34 @@ public class App extends Application {
 
               
 ```
+
+### 3. 数据上报
+
+如果需要用到数据上报功能(可用做埋点)，则需要为应用申请appid。
+
+#### 3.1 配置
+
+在Application节点下配置appId
+
+```xml
+  <meta-data
+            android:name="com.admobile.anticheat.APP_ID"
+            android:value="[appId]" />
+```
+
+#### 3.2 数据上报API
+
+数据以键值对的形式上报。
+
+AntiCheatingSDK
+
+```java
+public static void track(String key, String value);
+
+public static void track(String key, int value);
+```
+
+
 
 
 
