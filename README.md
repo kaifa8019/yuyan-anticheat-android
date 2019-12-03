@@ -74,9 +74,6 @@ public class App extends Application {
 ```
 
 ### 3. 数据上报
-
-如果需要用到数据上报功能(可用做埋点)，则需要为应用申请appid。
-
 #### 3.1 配置
 
 在Application节点下配置appId
